@@ -6,7 +6,6 @@
 struct Paladin : Character
 {
     Paladin(const std::string name_, int hitPoints_, int amor_);
-    ~Paladin() override;
 
     const std::string& getName() override;
     std::string getStats() override;

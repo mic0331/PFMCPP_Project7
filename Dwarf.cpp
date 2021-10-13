@@ -1,13 +1,15 @@
-#pragma once
-
 #include <iostream>
 #include "Dwarf.h"
 #include "Character.h"
+#include "Utility.h"
 
 Dwarf::Dwarf(const std::string name_, int hitPoints_, int amor_) : 
     Character(4, hitPoints_, amor_),
     name(name_)
-{ }
+{
+    helpfulItems = makeHelpfulItems(getRandomNumber());
+    defensiveItems = makeDefensiveItems(getRandomNumber());
+}
 
 const std::string& Dwarf::getName() 
 {
@@ -16,15 +18,10 @@ const std::string& Dwarf::getName()
 
 std::string Dwarf::getStats()
 {
-    return Character::getStats();
+    return getCharacterStats(this);
 }
 
 void Dwarf::attack( Character& other )
 {
     Character::attack(other);
-}
-
-Dwarf::~Dwarf()
-{
-
 }

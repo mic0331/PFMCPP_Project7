@@ -5,7 +5,9 @@
 struct Character;
 struct Item
 {
-    virtual ~Item() { }
+    // to avoid warning - place at least one method in 'out-of-line' so the compiler has a way to select a 
+    // translation unit in which to place a single shared copy of ctable ...
+    virtual ~Item();
     virtual void use(Character*) = 0;
     Item(const std::string& name_, int effect ) : name(name_), boost(effect) { }
     
