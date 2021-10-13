@@ -6,6 +6,7 @@
 #include <iostream>
 
 #include "Item.h"
+#include "Utility.h"
 
 struct Character
 {
@@ -56,11 +57,12 @@ struct Character
     void printStats()
     {
         std::cout << getName() << "'s stats: " << std::endl;
-        std::cout << getStats(); //make your getStats() use a function from the Utility.h
+        std::cout << getCharacterStats(this); //make your getStats() use a function from the Utility.h
         
         std::cout << std::endl;
         std::cout << std::endl;
     }
+
 protected:
     std::vector<std::unique_ptr<Item>> defensiveItems;
     std::vector<std::unique_ptr<Item>> helpfulItems;

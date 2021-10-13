@@ -1,7 +1,31 @@
+#pragma once
+
+#include <iostream>
 #include "Paladin.h"
+#include "Character.h"
+#include "Utility.h"
 
-// Paladin::Paladin
+Paladin::Paladin(const std::string name_, int hitPoints_, int amor_) : 
+    Character(10, hitPoints_, amor_),
+    name(name_)
+{ }
 
-// Paladin::getName
+const std::string& Paladin::getName() 
+{
+    return this->name;
+}
 
-// Paladin::getStats
+std::string Paladin::getStats()
+{
+    return getCharacterStats(this);
+}
+
+void Paladin::attack( Character& other )
+{
+    Character::attack(other);
+}
+
+Paladin::~Paladin()
+{
+
+}

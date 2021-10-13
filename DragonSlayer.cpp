@@ -1,9 +1,25 @@
+#pragma once
+
 #include "DragonSlayer.h"
 #include "Dragon.h"
+#include "Character.h"
+#include "Utility.h"
 
-//DragonSlayer::DragonSlayer
+DragonSlayer::DragonSlayer(const std::string name_, int hitPoints_, int amor_) : 
+    Character(80, hitPoints_, amor_),
+    name(name_)
+{ }
 
-//DragonSlayer::getName
+
+const std::string& Dragon::getName() 
+{
+    return this->name;
+}
+
+std::string Dragon::getStats()
+{
+    return getCharacterStats(this);
+}
 
 void DragonSlayer::attack(Character& other)
 {
@@ -26,4 +42,7 @@ void DragonSlayer::attack(Character& other)
         
 }
 
-//DragonSlayer::getStats
+DragonSlayer::~DragonSlayer()
+{
+
+}
