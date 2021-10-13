@@ -1,7 +1,7 @@
 #pragma once
 
 #include <iostream>
-#include "Paladin.h"
+#include "Character.h"
 
 struct Paladin : Character
 {

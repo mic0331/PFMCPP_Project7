@@ -18,7 +18,7 @@ const std::string& Dragon::getName()
 
 std::string Dragon::getStats()
 {
-    return getCharacterStats(this);
+    return Character::getStats();
 }
 
 void DragonSlayer::attack(Character& other)

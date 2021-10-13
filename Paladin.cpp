@@ -3,7 +3,6 @@
 #include <iostream>
 #include "Paladin.h"
 #include "Character.h"
-#include "Utility.h"
 
 Paladin::Paladin(const std::string name_, int hitPoints_, int amor_) : 
     Character(10, hitPoints_, amor_),
@@ -17,7 +16,7 @@ const std::string& Paladin::getName()
 
 std::string Paladin::getStats()
 {
-    return getCharacterStats(this);
+    return Character::getStats();
 }
 
 void Paladin::attack( Character& other )

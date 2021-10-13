@@ -3,7 +3,6 @@
 #include "Dragon.h"
 #include "DragonSlayer.h"
 #include "Character.h"
-#include "Utility.h"
 
 Dragon::Dragon(const std::string name_, int hitPoints_, int amor_) : 
     Character(80, hitPoints_, amor_),
@@ -31,7 +30,7 @@ const std::string& Dragon::getName()
 
 std::string Dragon::getStats()
 {
-    return getCharacterStats(this);
+    return Character::getStats();
 }
 
 Dragon::~Dragon()
