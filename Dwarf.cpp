@@ -4,7 +4,7 @@
 #include "Utility.h"
 
 Dwarf::Dwarf(const std::string name_, int hitPoints_, int amor_) : 
-    Character(4, hitPoints_, amor_),
+    Character(hitPoints_, amor_, 4),
     name(name_)
 {
     helpfulItems = makeHelpfulItems(getRandomNumber());

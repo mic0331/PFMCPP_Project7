@@ -3,8 +3,8 @@
 #include "Character.h"
 #include "Utility.h"
 
-Dragon::Dragon(const std::string name_, int hitPoints_, int amor_) : 
-    Character(80, hitPoints_, amor_),
+Dragon::Dragon(const std::string name_, int hitPoints_, int armor_) : 
+    Character(hitPoints_, armor_, 80),
     name(name_)
 { }
 

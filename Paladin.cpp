@@ -3,8 +3,8 @@
 #include "Character.h"
 #include "Utility.h"
 
-Paladin::Paladin(const std::string name_, int hitPoints_, int amor_) : 
-    Character(10, hitPoints_, amor_),
+Paladin::Paladin(const std::string name_, int hitPoints_, int armor_) : 
+    Character(hitPoints_, armor_, 10),
     name(name_)
 { 
     helpfulItems = makeHelpfulItems(getRandomNumber());

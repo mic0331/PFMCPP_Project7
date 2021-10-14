@@ -3,8 +3,8 @@
 #include "Character.h"
 #include "Utility.h"
 
-DragonSlayer::DragonSlayer(const std::string name_, int hitPoints_, int amor_) : 
-    Character(4, hitPoints_, amor_),
+DragonSlayer::DragonSlayer(const std::string name_, int hitPoints_, int armor_) : 
+    Character(hitPoints_, armor_, 4),
     name(name_)
 { 
     helpfulItems = makeHelpfulItems(getRandomNumber());
