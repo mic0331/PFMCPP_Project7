@@ -4,7 +4,6 @@
 
 #include "DefensiveItem.h"
 #include "HelpfulItem.h"
-#include "Utility.h"
 
 Character::Character(int hp, int armor_, int attackDamage_ ) :
     hitPoints(hp),
@@ -87,39 +86,30 @@ int Character::takeDamage(int damage)
     return hitPoints;
 }
 
-
-#include <cassert>
-void Character::attackInternal(Character& other)
+void adaptStats(int& stat, int& initialValue) 
 {
-    if( other.hitPoints <= 0 )
-    {
-        /*
+    /*
         When you defeat another Character: 
             a) your stats are restored to their initial value if they are lower than it.
             b) your stats are boosted 10%
             c) the initial value of your stats is updated to reflect this boosted stat for the next time you defeat another character.
       */
+    if( stat < initialValue)
+        stat = initialValue;
+    stat *= 1.1f;
+    initialValue = stat;
+}
+
+void Character::attackInternal(Character& other)
+{
+    if( other.hitPoints <= 0 )
+    {
         // hit points
-        if( hitPoints < *initialHitPoints)
-        {
-            hitPoints = *initialHitPoints;
-        }
-        hitPoints *= 1.1f;
-        *initialHitPoints = hitPoints;
+        adaptStats(hitPoints, *initialHitPoints);
         // amor
-        if( armor < *initialArmorLevel)
-        {
-            armor = *initialArmorLevel;
-        }
-        armor *= 1.1f;
-        *initialArmorLevel = armor;
+        adaptStats(armor, *initialArmorLevel);
         // attackDammage
-        if( attackDamage < *initialAttackDamage)
-        {
-            attackDamage = *initialAttackDamage;
-        }
-        attackDamage *= 1.1f;
-        *initialAttackDamage = attackDamage;
+        adaptStats(attackDamage, *initialAttackDamage);
 
         std::cout << getName() << " defeated " << other.getName() << " and leveled up!" << std::endl;        
     }
