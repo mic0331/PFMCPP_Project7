@@ -1,5 +1,5 @@
 #include "AttackItem.h"
-#include "Item.h"
+#include "Utility.h"
 
 void AttackItem::use(Character *character)
 {
